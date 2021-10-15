@@ -6,4 +6,4 @@ for x in range(0, len(split_line)):
         split_line.pop(x)
         split_line.insert(x, "Guido van Rossum")
 line = ''.join(f'{str(x)} ' for x in split_line)
-print(line)
+print(f'The line after the replacement of "GvR": {line}')
