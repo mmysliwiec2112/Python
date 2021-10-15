@@ -5,5 +5,5 @@ for x in range(0, 200):
 for x in range(0, len(L)):
     L[x] = L[x].zfill(3)
 
-print(L)
+print(f'List, where each number is filled with zeroes so that each cell has three numbers: \n{L}')
 
