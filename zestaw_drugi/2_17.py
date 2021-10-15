@@ -1,7 +1,7 @@
 line = "Lorem ipsum \n doloro sit amet"
 line = line.split()
 line.sort()
-print(line)
+print(f'Line sorted in alphabetical way: {line}')
 line.sort(key=len)
 print()
-print(line)
+print(f'Line sorted by length of a word: {line}')
