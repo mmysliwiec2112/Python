@@ -7,6 +7,7 @@ class Frac:
     def __init__(self, x=0, y=1):
         self.x = x
         self.y = y
+        self.red_frac()
 
     def __str__(self):
         if self.y != 1:
@@ -43,33 +44,21 @@ class Frac:
 
     def __add__(self, other):
         if self.y == other.y:
-            self.x += other.x
+            return Frac(self.x + other.x, self.y)
         else:
-            self.x = self.x * other.y + other.x * self.y
-            self.y *= other.y
-        self.red_frac()
-        return Frac(self.x, self.y)
+            return Frac(self.x * other.y + other.x * self.y, self.y * other.y)
 
     def __sub__(self, other):
         if self.y == other.y:
-            self.x -= other.x
+            return Frac(self.x - other.x, self.y)
         else:
-            self.x = self.x * other.y - other.x * self.y
-            self.y *= other.y
-        self.red_frac()
-        return Frac(self.x, self.y)
+            return Frac(self.x * other.y - other.x * self.y, self.y * other.y)
 
     def __mul__(self, other):
-        self.x *= other.x
-        self.y *= other.y
-        self.red_frac()
-        return Frac(self.x, self.y)
+        return Frac(self.x * other.x, self.y * other.y)
 
     def __truediv__(self, other):
-        self.x *= other.y
-        self.y *= other.x
-        self.red_frac()
-        return Frac(self.x, self.y)
+        return Frac(self.x * other.x, self.y * other.y)
 
     def __floordiv__(self, other):
         pass  # frac1 // frac2, opcjonalnie
