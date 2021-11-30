@@ -25,16 +25,10 @@ class Frac:
         return not self == other
 
     def __lt__(self, other):
-        if self.cmp_frac(other) == -1:
-            return True
-        else:
-            return False
+        return self.cmp_frac(other) == -1
 
     def __le__(self, other):
-        if self.cmp_frac(other) != 1:
-            return True
-        else:
-            return False
+        return self.cmp_frac(other) != 1
 
     def __gt__(self, other):
         return not self <= other
