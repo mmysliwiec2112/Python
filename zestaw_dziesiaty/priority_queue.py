@@ -1,4 +1,4 @@
-import random as rand
+import random
 
 
 class PriorityQueue:
@@ -11,9 +11,14 @@ class PriorityQueue:
 
     def __init__(self, size=10):
         self.items = size * [None]
+        for x in range(size):
+            self.items[x] = -1
         self.n = 0  # pierwszy wolny indeks
         self.size = size
         self.priorities = size * [None]
+
+    def __str__(self):
+        return str(self.items)
 
     def is_empty(self):
         return self.n == 0
@@ -22,25 +27,18 @@ class PriorityQueue:
         return self.size == self.n
 
     def insert(self, data):
-        if self.n == 0:
+        if self.n == self.size:
             raise PriorityQueue.PriorityQueueSizeError
         self.items[self.n] = data
         self.n += 1
+        self.items.sort(reverse=True)
 
     def remove(self):
-        if self.n == self.size:
+        if self.n == 0:
             raise PriorityQueue.PriorityQueueSizeError
-        # Etap 1 - wyszukiwanie elementu.
-        maxi = 0
-        for i in range(self.n):
-            if self.items[i] > self.items[maxi]:
-                maxi = i
-        # Etap 2 - usuwanie elementu.
         self.n -= 1
-        data = self.items[maxi]
-        self.items[maxi] = self.items[self.n]
-        self.items[self.n] = None  # usuwamy referencję
-        return data
+        return self.items.pop(0)
+
 
 import unittest
 
@@ -53,9 +51,11 @@ class TestPrioQueue(unittest.TestCase):
     def testPrioQueue(self):
         prio_que = PriorityQueue(10)
         for x in range(10):
-            prio_que.insert(rand.randint(0, 100))
+            print(x)
+            prio_que.insert(random.randint(0, 100))
+        print(prio_que)
         for x in range(10):
-            prio_que.remove()
+            print(prio_que.remove())
 
     def tearDown(self):
         pass
