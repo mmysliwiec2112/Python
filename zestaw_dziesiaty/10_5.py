@@ -7,7 +7,7 @@ class PriorityQueue:
             pass
 
         def __str__(self):
-            return "cos"
+            return "dodanie elementu do pełnej kolejki lub usunięcie elementu z pustej"
 
     def __init__(self, size=10):
         self.items = size * [None]

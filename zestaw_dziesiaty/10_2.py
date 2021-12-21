@@ -4,7 +4,7 @@ class Stack:
             pass
 
         def __str__(self):
-            return "cos"
+            return "dodanie elementu do pełnego stosu lub usunięcie elementu z pustego"
 
     def __init__(self, size=10):
         self.items = size * [None]  # utworzenie tablicy
