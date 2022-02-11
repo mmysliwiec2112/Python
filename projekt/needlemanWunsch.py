@@ -111,8 +111,8 @@ class TestList(unittest.TestCase):
 if __name__ == '__main__':
 
     np.random.seed(42)
-    x = np.random.choice(['A', 'T', 'G', 'C'], 50)
-    y = np.random.choice(['A', 'T', 'G', 'C'], 50)
+    x = np.random.choice(['A', 'T', 'G', 'C'], 10)
+    y = np.random.choice(['A', 'T', 'G', 'C'], 10)
     print_results(x, y)
 
     print('\nresults for gap value equal to 0:')
