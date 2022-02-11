@@ -46,29 +46,24 @@ def calculate_scores(seq_x, seq_y, match=1, mismatch=3, gap=4):
 
     alignment_x = ""
     alignment_y = ""
-    control = ''
     i = len(seq_x)
     j = len(seq_y)
     while i > 0 or j > 0:
         if traceback_matrix[i][j] == ['d']:
             alignment_x += seq_x[i - 1]
             alignment_y += seq_y[j - 1]
-            control += 'd'
             i -= 1
             j -= 1
         elif traceback_matrix[i][j] == ['l']:
             alignment_x += seq_x[i - 1]
             alignment_y += '-'
-            control += 'l'
             i -= 1
         elif traceback_matrix[i][j] == ['u']:
             alignment_x += '-'
             alignment_y += seq_y[j - 1]
-            control += 'u'
             j -= 1
     alignment_x = ''.join(alignment_x)[::-1]
     alignment_y = ''.join(alignment_y)[::-1]
-    print(control)
     return '\n'.join([alignment_x, alignment_y])
 
 
